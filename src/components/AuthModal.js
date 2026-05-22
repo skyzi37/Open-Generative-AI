@@ -1,3 +1,5 @@
+import { t } from '../lib/i18n.js';
+
 export function AuthModal(onSuccess) {
     const overlay = document.createElement('div');
     overlay.className = 'fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm px-6';
@@ -12,28 +14,28 @@ export function AuthModal(onSuccess) {
                     <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3m-3-3l-2.25-2.25"/>
                 </svg>
             </div>
-            <h2 class="text-2xl font-black text-white uppercase tracking-wider mb-2">Muapi API Key Required</h2>
-            <p class="text-secondary text-sm">Create a Muapi access key, then paste the key value here to start creating high-aesthetic images.</p>
+            <h2 class="text-2xl font-black text-white uppercase tracking-wider mb-2">${t('auth.title')}</h2>
+            <p class="text-secondary text-sm">${t('auth.subtitle')}</p>
         </div>
 
         <div class="space-y-6">
             <div class="space-y-2">
-                <label class="text-[10px] font-bold text-muted uppercase tracking-widest ml-1">Muapi Access Key</label>
-                <input 
-                    type="password" 
+                <label class="text-[10px] font-bold text-muted uppercase tracking-widest ml-1">${t('auth.keyLabel')}</label>
+                <input
+                    type="password"
                     id="muapi-key-input"
-                    placeholder="Paste your access key value..."
+                    placeholder="${t('auth.keyPlaceholder')}"
                     class="w-full bg-black/40 border border-white/5 rounded-2xl px-5 py-4 text-white placeholder:text-muted focus:outline-none focus:border-primary/50 transition-colors shadow-inner"
                 >
-                <p class="text-[11px] text-muted ml-1">Do not enter the key name or label; paste the generated key value from Muapi.</p>
+                <p class="text-[11px] text-muted ml-1">${t('auth.keyNote')}</p>
             </div>
 
             <div class="flex flex-col gap-3">
                 <button id="save-key-btn" class="w-full bg-primary text-black font-black py-4 rounded-2xl hover:shadow-glow hover:scale-[1.02] active:scale-[0.98] transition-all">
-                    Initialize Studio
+                    ${t('auth.initBtn')}
                 </button>
                 <a href="https://muapi.ai/access-keys" target="_blank" rel="noreferrer" class="text-center text-[11px] font-bold text-muted hover:text-white transition-colors py-2 uppercase tracking-tighter">
-                    Create or copy a Muapi access key →
+                    ${t('auth.createKey')}
                 </a>
             </div>
         </div>
